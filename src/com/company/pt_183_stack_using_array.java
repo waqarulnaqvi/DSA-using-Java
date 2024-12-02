@@ -1,0 +1,71 @@
+import  java.util.Scanner;
+class stack{
+    int a[]=new int[4];
+    int top=-1;
+    public void pop()
+    {
+        if(top==-1)
+        {
+            System.out.println("Underflow!\n");
+        }
+        else {
+            top=top-1;
+            System.out.println("Element Deleted!!\n");
+        }
+    }
+    public void push(Scanner sc)
+    {
+        if(top==a.length-1)
+        {
+            System.out.println("Overflow!\n");
+        }
+        else {
+            System.out.println("Enter a  element:");
+            int ele= sc.nextInt();
+            top++;
+            a[top]=ele;
+            System.out.println("Element Inserted!!\n");
+        }
+    }
+    public int peek() {
+        if (top == -1) {
+            return -1;
+        } else {
+            return a[top];
+        }
+    }
+    public void display()
+    {
+        System.out.println("Stack Elements:");
+        for (int i = top; i >=0 ; i--) {
+//            for (int i = top; i <a.length ; i++) {
+            System.out.println(a[i]);
+        }
+        System.out.println();
+    }
+        }
+public class pt_183_stack_using_array {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("WELCOME TO THE STACK OPERATIONS");
+        stack s = new stack();
+          boolean run=true;
+        while (run) {
+            System.out.println("1 for push\n2 for pop \n3 for display\n4 for peek \nPRESS ANY KEY TO BREAKING FROM THE LOOP!! ");
+            int n = sc.nextInt();
+            switch (n) {
+                case 1 -> s.push(sc);
+                case 2 -> s.pop();
+                case 3 -> s.display();
+                case 4 ->
+                {
+                    System.out.println("STACK TOP :"+s.peek()+"\n");
+                }
+                default -> {
+                    System.out.println("Breaking from the loop!!");
+                  run=false;
+                }
+            }
+        }
+    }
+}
